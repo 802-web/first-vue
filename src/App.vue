@@ -1,48 +1,8 @@
 <script setup>
-import { reactive, ref } from 'vue'
-const title = 'hello vue'
-let price = ref(4)
-function incremnet() {
-	price.value++
-	instructor.age++
-	instructor.bio = 'ushishi'
-	instructor.sns.instagram = 'tkk'
-	instructor.email = 'emal'
-}
-let info = ref({
-	student: 'uuu',
-	age: 2
-})
-const instructor = reactive({
-	name: 'mowmow',
-	age: 3,
-	sns: {
-		twitter: 'twitter',
-		instagram: 'insta'
-	},
-	email: ref('kkk@.com')
-})
-instructor.bio = 'hello'
+import { ref } from 'vue'
 
-const option = {
-	key: ref('ww'),
-	val: ref(3)
-}
-console.log(option.key)
+const message = ref('<h1>Hello</h1>')
 </script>
 <template>
-	<h1>Title: {{ title }}</h1>
-	<h2>price: {{ price }}</h2>
-	<h2>student: {{ info.age }}</h2>
-	<h2>instructor: {{ instructor.age }}</h2>
-	<h2>instructor bio: {{ instructor.bio }}</h2>
-	<h2>instructor sns: {{ instructor.sns.instagram }}</h2>
-	<h2>instructor email: {{ instructor.email }}</h2>
-	<h2>option: {{ option.val.value + 1 }}</h2>
-	<button @click="incremnet">button</button>
+	<div v-html="message"></div>
 </template>
-<style>
-h1 {
-	color: red;
-}
-</style>
