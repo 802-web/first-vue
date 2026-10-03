@@ -10,6 +10,8 @@ const countUp = (event, times) => {
 	count.value++
 }
 const eventName = 'keyup'
+
+const userInput = ref('')
 </script>
 <template>
 	<div v-html="message"></div>
@@ -23,4 +25,8 @@ const eventName = 'keyup'
 	<a href="https://vuejs.org" @click.prevent="">vue.js</a>
 	<input type="text" @keyup.space="count++" />
 	<input type="text" @[eventName].delete="count++" />
+	<br /><br />
+
+	<p>{{ userInput }}</p>
+	<input v-model="userInput" type="text" />
 </template>
