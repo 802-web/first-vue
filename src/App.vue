@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue'
+import { computed, ref, watchEffect } from 'vue'
 
 const message = ref('<h1>Hello</h1>')
 const url = ref('https://vuejs.org')
@@ -12,6 +12,19 @@ const countUp = (event, times) => {
 const eventName = 'keyup'
 
 const userInput = ref('')
+
+const num = ref(0)
+const evaluation = computed(() => {
+	return num.value > 5 ? 'good' : 'bad'
+})
+
+// watchEffect
+const wNum = ref(0)
+watchEffect(() => {
+	console.log('watchEffect')
+	// console.log(wNum.value)
+	console.log('ggg')
+})
 </script>
 <template>
 	<div v-html="message"></div>
@@ -29,4 +42,14 @@ const userInput = ref('')
 
 	<p>{{ userInput }}</p>
 	<input v-model="userInput" type="text" />
+	<br /><br />
+
+	<p>{{ evaluation }}</p>
+	<p>{{ num }}</p>
+	<button @click="num++">num</button>
+
+	<br /><br />
+
+	<p>{{ wNum }}</p>
+	<button @click="wNum++">wNum</button>
 </template>
