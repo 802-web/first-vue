@@ -1,5 +1,5 @@
 <script setup>
-import { computed, ref, watchEffect } from 'vue'
+import { computed, ref, watch, watchEffect } from 'vue'
 
 const message = ref('<h1>Hello</h1>')
 const url = ref('https://vuejs.org')
@@ -25,6 +25,15 @@ watchEffect(() => {
 	// console.log(wNum.value)
 	console.log('ggg')
 })
+
+// watch
+const watchNum = ref(0)
+watch(watchNum, (newVal, oldVal) => {
+	console.log('watch')
+	console.log(watchNum.value)
+	console.log('newVal', newVal)
+	console.log('oldVal', oldVal)
+})
 </script>
 <template>
 	<div v-html="message"></div>
@@ -49,7 +58,10 @@ watchEffect(() => {
 	<button @click="num++">num</button>
 
 	<br /><br />
-
 	<p>{{ wNum }}</p>
 	<button @click="wNum++">wNum</button>
+
+	<br /><br />
+	<p>{{ watchNum }}</p>
+	<button @click="watchNum++">watchNum</button>
 </template>
