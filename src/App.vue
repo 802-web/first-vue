@@ -47,6 +47,8 @@ const chgColor = () => {
 	<div :class="[className, { purple: isPurple }]">Hello</div>
 	<button @click="chgColor">toggle</button>
 
+	<div :style="{ color: 'red', backgroundColor: 'blue' }">style</div>
+
 	<div v-html="message"></div>
 	<a v-bind="{ id: vueId, href: url }">vue</a>
 	<p>{{ count }}</p>
@@ -77,10 +79,10 @@ const chgColor = () => {
 	<button @click="watchNum++">watchNum</button>
 </template>
 <style>
-.white {
+/* .white {
 	color: white;
 }
 .purple {
 	background-color: blueviolet;
-}
+} */
 </style>
