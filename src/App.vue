@@ -34,8 +34,19 @@ watch(watchNum, (newVal, oldVal) => {
 	console.log('newVal', newVal)
 	console.log('oldVal', oldVal)
 })
+
+const isWhite = ref(true)
+const isPurple = ref(true)
+const className = ref('white')
+const chgColor = () => {
+	isPurple.value = !isPurple.value
+	isWhite.value = !isWhite.value
+}
 </script>
 <template>
+	<div :class="[className, { purple: isPurple }]">Hello</div>
+	<button @click="chgColor">toggle</button>
+
 	<div v-html="message"></div>
 	<a v-bind="{ id: vueId, href: url }">vue</a>
 	<p>{{ count }}</p>
@@ -65,3 +76,11 @@ watch(watchNum, (newVal, oldVal) => {
 	<p>{{ watchNum }}</p>
 	<button @click="watchNum++">watchNum</button>
 </template>
+<style>
+.white {
+	color: white;
+}
+.purple {
+	background-color: blueviolet;
+}
+</style>
