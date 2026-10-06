@@ -4,8 +4,18 @@ import CountUp from '@/components/CountUp.vue'
 import BaseButton from '@/components/BaseButton.vue'
 </script>
 <template>
+	<p class="red">App</p>
 	<CountUp id="baseBtn" class="border" />
 	<BaseIcon />
 	<BaseButton id="baseBtn" />
 </template>
-<style></style>
+<style>
+body {
+	background-color: beige;
+}
+</style>
+<style scoped>
+.red {
+	color: red;
+}
+</style>
