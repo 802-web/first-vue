@@ -9,11 +9,7 @@ import BaseButton from '@/components/BaseButton.vue'
 	<BaseIcon />
 	<BaseButton id="baseBtn" />
 </template>
-<style>
-body {
-	background-color: beige;
-}
-</style>
+
 <style scoped>
 .red {
 	color: red;
