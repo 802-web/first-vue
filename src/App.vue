@@ -5,8 +5,10 @@ const maybeOk = ref(false)
 </script>
 <template>
 	<button @click="ok = !ok">toggle</button>
-	<p v-if="ok">OK</p>
-	<p v-else-if="maybeOk">maybe OK</p>
-	<p v-else>no OK</p>
+	<template v-if="ok">
+		<p>OK</p>
+		<p>maybe OK</p>
+		<p>no OK</p>
+	</template>
 </template>
 <style></style>
