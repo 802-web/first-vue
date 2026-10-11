@@ -2,13 +2,18 @@
 import ShowCount from '@/components/ShowCount.vue'
 import ResetButton from '@/components/ResetButton.vue'
 import BaseCard from '@/components/BaseCard.vue'
-import { ref } from 'vue'
+import ComponentA from '@/components/ComponentA.vue'
+import ComponentB from '@/components/ComponentB.vue'
+import ComponentC from '@/components/ComponentC.vue'
+import { ref, shallowRef } from 'vue'
 
 const count = ref(0)
 const onReset = (val) => {
 	count.value = val
 	return count.value
 }
+
+const currentComp = shallowRef(ComponentA)
 </script>
 <template>
 	<!-- <ShowCount bar="bar" /> -->
@@ -17,7 +22,13 @@ const onReset = (val) => {
 	<ResetButton @reset="count = $event" />
 	<ResetButton @reset-count="onReset" /> -->
 
-	<div>Slots</div>
+	<h1>Dynamic Component</h1>
+	<button @click="currentComp = ComponentA">A</button>
+	<button @click="currentComp = ComponentB">B</button>
+	<button @click="currentComp = ComponentC">C</button>
+	<component :is="currentComp" />
+
+	<h1>Slots</h1>
 	<BaseCard>
 		<!-- <h2>h3</h2> -->
 		<template #header="{ pageNum }">
