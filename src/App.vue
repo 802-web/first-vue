@@ -14,6 +14,8 @@ const onReset = (val) => {
 }
 
 const currentComp = shallowRef(ComponentA)
+
+const isShow = ref(false)
 </script>
 <template>
 	<!-- <ShowCount bar="bar" /> -->
@@ -31,6 +33,12 @@ const currentComp = shallowRef(ComponentA)
 		<component :is="currentComp" />
 	</KeepAlive>
 
+	<h1>Teleport</h1>
+	<button @click="isShow = true">show!</button>
+	<Teleport v-if="isShow === true" to="body">
+		<p>teleport</p>
+		<button @click="isShow = false">hide</button>
+	</Teleport>
 	<h1>Slots</h1>
 	<BaseCard>
 		<!-- <h2>h3</h2> -->
