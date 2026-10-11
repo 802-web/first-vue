@@ -3,10 +3,18 @@ import ShowCount from '@/components/ShowCount.vue'
 import ResetButton from '@/components/ResetButton.vue'
 import BaseCard from '@/components/BaseCard.vue'
 import ComponentA from '@/components/ComponentA.vue'
-import ComponentB from '@/components/ComponentB.vue'
+// import ComponentB from '@/components/ComponentB.vue'
 import ComponentC from '@/components/ComponentC.vue'
-import { ref, shallowRef } from 'vue'
-
+import BaseLoading from '@/components/BaseLoading.vue'
+import ErrorMsg from '@/components/ErrorMsg.vue'
+import { defineAsyncComponent, ref, shallowRef } from 'vue'
+const ComponentB = defineAsyncComponent({
+	loader: () => import('@/components/ComponentB.vue'),
+	loadingComponent: BaseLoading,
+	errorComponent: ErrorMsg,
+	delay: 2000,
+	timeout: 300
+})
 const count = ref(0)
 const onReset = (val) => {
 	count.value = val
