@@ -26,7 +26,10 @@ const currentComp = shallowRef(ComponentA)
 	<button @click="currentComp = ComponentA">A</button>
 	<button @click="currentComp = ComponentB">B</button>
 	<button @click="currentComp = ComponentC">C</button>
-	<component :is="currentComp" />
+	<!-- <KeepAlive include="ComponentC,ComponentB" exclude="ComponentA"> -->
+	<KeepAlive>
+		<component :is="currentComp" />
+	</KeepAlive>
 
 	<h1>Slots</h1>
 	<BaseCard>
